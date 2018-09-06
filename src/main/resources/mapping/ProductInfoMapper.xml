@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxwl.cn.company.dao.ProductInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sxwl.cn.company.daomain.ProductInfo" >
+    <id column="productinfo_id" property="productinfoId" jdbcType="INTEGER" />
+    <result column="productinfo_name" property="productinfoName" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sxwl.cn.company.daomain.ProductInfo" extends="BaseResultMap" >
+    <result column="productinfo_desc" property="productinfoDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    productinfo_id, productinfo_name, img
+  </sql>
+  <sql id="Blob_Column_List" >
+    productinfo_desc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from productinfo
+    where productinfo_id = #{productinfoId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByName" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from productinfo
+    where productinfo_name = #{productinfoName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from productinfo
+    where productinfo_id = #{productinfoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxwl.cn.company.daomain.ProductInfo" useGeneratedKeys="true" keyProperty="ProductInfo.id" >
+    insert into productinfo (productinfo_id, productinfo_name, img, 
+      productinfo_desc)
+    values (#{productinfoId,jdbcType=INTEGER}, #{productinfoName,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
+      #{productinfoDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxwl.cn.company.daomain.ProductInfo" >
+    insert into productinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productinfoId != null" >
+        productinfo_id,
+      </if>
+      <if test="productinfoName != null" >
+        productinfo_name,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="productinfoDesc != null" >
+        productinfo_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productinfoId != null" >
+        #{productinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="productinfoName != null" >
+        #{productinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="productinfoDesc != null" >
+        #{productinfoDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxwl.cn.company.daomain.ProductInfo" >
+    update productinfo
+    <set >
+      <if test="productinfoName != null" >
+        productinfo_name = #{productinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="productinfoDesc != null" >
+        productinfo_desc = #{productinfoDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where productinfo_id = #{productinfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sxwl.cn.company.daomain.ProductInfo" >
+    update productinfo
+    set productinfo_name = #{productinfoName,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      productinfo_desc = #{productinfoDesc,jdbcType=LONGVARCHAR}
+    where productinfo_id = #{productinfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxwl.cn.company.daomain.ProductInfo" >
+    update productinfo
+    set productinfo_name = #{productinfoName,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR}
+    where productinfo_id = #{productinfoId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxwl.cn.company.dao.CompanyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sxwl.cn.company.daomain.CompanyInfo" >
+    <id column="companyinfo_id" property="companyinfoId" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="companyinfo_desc" property="companyinfoDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    companyinfo_id, phone, email, location, companyinfo_desc
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from companyinfo
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from companyinfo
+    where companyinfo_id = #{companyinfoId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPhone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from companyinfo
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from companyinfo
+    where companyinfo_id = #{companyinfoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxwl.cn.company.daomain.CompanyInfo" useGeneratedKeys="true" keyProperty="CompanyInfoMapper.id">
+    insert into companyinfo (companyinfo_id, phone, email, 
+      location, companyinfo_desc)
+    values (#{companyinfoId,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{companyinfoDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxwl.cn.company.daomain.CompanyInfo" >
+    insert into companyinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="companyinfoId != null" >
+        companyinfo_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="companyinfoDesc != null" >
+        companyinfo_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="companyinfoId != null" >
+        #{companyinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="companyinfoDesc != null" >
+        #{companyinfoDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxwl.cn.company.daomain.CompanyInfo" >
+    update companyinfo
+    <set >
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="companyinfoDesc != null" >
+        companyinfo_desc = #{companyinfoDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where companyinfo_id = #{companyinfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxwl.cn.company.daomain.CompanyInfo" >
+    update companyinfo
+    set phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      companyinfo_desc = #{companyinfoDesc,jdbcType=VARCHAR}
+    where companyinfo_id = #{companyinfoId,jdbcType=INTEGER}
+  </update>
+</mapper>
