@@ -1,5 +1,6 @@
 package com.sxwl.cn.company.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.sxwl.cn.company.Vo.ProductInfoVo;
 import com.sxwl.cn.company.daomain.ProductInfo;
 import com.sxwl.cn.company.service.ProductInfoService;
@@ -8,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -63,6 +66,15 @@ public class ProductInfoServiceImplTest {
 
         System.out.println(productInfo.getProductinfoDesc());
 
+
+
+    }
+
+    @Test
+    public void findList(){
+
+        PageInfo<ProductInfo> productInfoPageInfo=productInfoService.findList(1,2);
+        System.out.println(productInfoPageInfo.getNextPage());
 
 
     }

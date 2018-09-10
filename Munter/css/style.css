@@ -91,7 +91,7 @@ body {
 }
 
 :focus {
-    outline: none;
+    outline: navajowhite;
 }
 
 ::-moz-focus-inner {
@@ -107,7 +107,7 @@ body {
 }
 
 #intro {
-    background-image: url('../img/bg1.jpg');
+    background-image: url('../img/112.jpg');
     color: #ffffff;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -118,7 +118,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
-    background-attachment: relative;
+    /*background-attachment: relative;*/
     background-position: center center;
 }
 
@@ -190,9 +190,9 @@ body {
 }
 
 #about-us {
-    background-color: #1abc9c;
-    color: #e4e6e5;
-    padding-top: 90px;
+    /*background-image:url("./img/body-bg.png");*/
+    /*color: #e4e6e5;*/
+    /*padding-top: 90px;*/
 }
 
 .title-row {
@@ -268,7 +268,7 @@ i {
 }
 
 #portfolio {
-    background-color: #000;
+    /*background-color: #000;*/
     margin: 0 auto;
     overflow: hidden;
     padding: 0;
@@ -368,10 +368,10 @@ i {
 
 #process {
     background-color: #5e5e5e;
-    /*margin: 0 auto;*/
-    /*overflow: hidden;*/
+    margin: 0 auto;
+    overflow: hidden;
     /*padding: auto;*/
-    /*padding: 250px;*/
+    padding: 1px;
     text-align: right;
 
     color: #e4e6e5;
@@ -384,16 +384,17 @@ i {
 }
 
 #clients {
-    background-color: #f39c12;
-    color: #e4e6e5;
-    padding-top: 90px;
+    /*background-color: #e3e3e3;*/
+    /*color: #e4e6e5;*/
+    /*padding-top: 90px;*/
+    padding: 14px;
 }
 
 #contact {
-    background-color: #2f2f2f;
-    color: #e4e6e5;
-    padding-bottom: 50px;
-    padding-top: 90px;
+    /*background-color: #2f2f2f;*/
+    /*color: #e4e6e5;*/
+    /*padding-bottom: 50px;*/
+    /*padding-top: 90px;*/
 }
 
 #contact i {

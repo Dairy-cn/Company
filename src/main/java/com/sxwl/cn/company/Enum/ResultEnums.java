@@ -17,6 +17,7 @@ public enum  ResultEnums {
     PRODUCT_NOT_EXIST(9,"产品信息没有存在"),
     USERFORM_HAS_ERROR(10,"用户表单信息有错误"),
     MESSAGE_HAS_ERROR(11,"信息有错误"),
+    ARTICLE_ERROR_LENGTH(12,"文章长度小于20"),
     USER_ERROR(2,"用户信息错误");
 
 

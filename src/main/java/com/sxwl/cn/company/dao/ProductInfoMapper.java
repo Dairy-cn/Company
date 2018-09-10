@@ -2,6 +2,8 @@ package com.sxwl.cn.company.dao;
 
 import com.sxwl.cn.company.daomain.ProductInfo;
 
+import java.util.List;
+
 public interface ProductInfoMapper {
     int deleteByPrimaryKey(Integer productinfoId);
 
@@ -17,4 +19,6 @@ public interface ProductInfoMapper {
 
     int updateByPrimaryKey(ProductInfo record);
     ProductInfo selectByName(String productName);
+
+    List<ProductInfo> findAll();
 }

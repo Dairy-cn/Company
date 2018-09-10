@@ -23,6 +23,15 @@
     from productinfo
     where productinfo_id = #{productinfoId,jdbcType=INTEGER}
   </select>
+  <select id="findAll" resultMap="ResultMapWithBLOBs" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from productinfo
+
+
+  </select>
 
   <select id="selectByName" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     select

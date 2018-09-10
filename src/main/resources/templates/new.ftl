@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    
-<body data-spy="scroll" data-offset="58" data-target="#navigation" style="background-image: url(./img/body-bg.png)">
+    <#include "common/header.ftl">
+<body data-spy="scroll" data-offset="58" data-target="#navigation" style="background-image: url(/company//img/body-bg.png)">
 <!-- Fixed navbar -->
 <div id="navigation" class="navbar" style="background: #0E2547;height: 130px">
     <div class="container">
@@ -10,15 +10,15 @@
                 <i class="fa fa-bars"></i>
             </button>
         </div>
-        <div><img src="img/logo.png"></div>
+        <div><img src="/company/img/logo.png"></div>
         <div class="navbar-collapse collapse pull-right">
             <ul class="nav navbar-nav">
-                <li><a href="index.ftl" target="_self">首页</a></li>
-                <li class="active"><a href="new.html" target="_self">公司新闻</a></li>
-                <li><a href="brand_story.html" target="_self">品牌故事</a></li>
-                <li><a href="engineerinfo.html" target="_self">工程概要</a></li>
-                <li><a href="about.html" target="_self">关于我们</a></li>
-                <li><a href="about.html#join" target="_self">加入我们</a></li>
+                <li><a href="index" target="_self">首页</a></li>
+                <li class="active"><a href="new" target="_self">公司新闻</a></li>
+                <li><a href="brand_story" target="_self">品牌故事</a></li>
+                <li><a href="engineerinfo" target="_self">工程概要</a></li>
+                <li><a href="about" target="_self">关于我们</a></li>
+                <li><a href="about.ftl#join" target="_self">加入我们</a></li>
                 <!--<li><a href="#contact" class="smoothscroll">联系我们</a></li>-->
 
             </ul>
@@ -34,7 +34,7 @@
     <div class="slide story" id="about-us" data-slide="2">
         <div class="container">
             <div class="row clearfix" style="padding: 0px">
-                <div class="col-md-12 column" style="background-image: url(./img/body-bg.png);padding: 0px">
+                <div class="col-md-12 column" style="background-image: url(/company/img/body-bg.png);padding: 0px">
                     <div class="carousel slide" id="carousel-544471"
                          style="background-image: url(./img/body-bg.png);padding: 0px ;">
                         <ol class="carousel-indicators">
@@ -47,7 +47,7 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active" style="padding: auto">
-                                <img alt="" src="img/114.jpg" style="width: 100%;width: 100%;padding: auto"/>
+                                <img alt="" src="/company/img/114.jpg" style="width: 100%;width: 100%;padding: auto"/>
                                 <div class="carousel-caption" style="padding: 50px">
                                     <h4>
                                         新闻一
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <img alt="" src="img/112.jpg"/>
+                                <img alt="" src="/company/img/112.jpg"/>
                                 <div class="carousel-caption">
                                     <h3>
                                         新闻二
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <img alt="" src="img/112.jpg"/>
+                                <img alt="" src="/company/img/112.jpg"/>
                                 <div class="carousel-caption" style="padding-top: 10px" ;>
                                     <h3>
                                         新闻三
@@ -97,7 +97,7 @@
 
 
         <div class="pull-left">
-            <img src="img/113.jpg" style="width: 260px;height: 240px;border-bottom: 5px;padding-right: 20px"
+            <img src="/company/img/113.jpg" style="width: 260px;height: 240px;border-bottom: 5px;padding-right: 20px"
                  class="img-rounded ">
 
         </div>
@@ -115,7 +115,7 @@
             called the hero unit and three supporting pieces of content. ...
 
         </p>
-        <a class="btn btn-primary btn-large pull-right" href="./new_2.html">更多</a>
+        <a class="btn btn-primary btn-large pull-right" href="/company/public/newpage">更多</a>
 
 
         <!--</div>-->
@@ -125,7 +125,7 @@
 
 
         <div class="pull-left">
-            <img src="img/113.jpg" style="width: 260px;height: 240px;border-bottom: 5px;padding-right: 20px"
+            <img src="/company/img/113.jpg" style="width: 260px;height: 240px;border-bottom: 5px;padding-right: 20px"
                  class="img-rounded ">
 
         </div>
@@ -143,7 +143,7 @@
             called the hero unit and three supporting pieces of content. ...
         </p>
         <p>
-            <a class="btn btn-primary btn-large pull-right" href="./new_1.html">更多</a>
+            <a class="btn btn-primary btn-large pull-right" href="/new_list">更多</a>
         </p>
 
 
@@ -152,7 +152,7 @@
     </div>
     <div class="jumbotron">
         <div class="pull-left">
-            <img src="img/113.jpg" style="width: 260px;height: 240px;border-bottom: 5px;padding-right: 20px"
+            <img src="/company/img/113.jpg" style="width: 260px;height: 240px;border-bottom: 5px;padding-right: 20px"
                  class="img-rounded ">
 
         </div>
@@ -205,58 +205,7 @@
 </div>
 
 
-<!--//底端导航-->
-<div id="copyrights">
-    <div class="container">
-        <div class="row">
-            <div class="pull-left" style="margin-left: 150px">
-
-                <h3 align="left"><a href="http://www.badiu.com"><span>客户联系：</span></a></h3>
-                <h5 align="left">联系方式：<a><span>&nbsp; 188000000</span></a></h5>
-                <h5 align="left">公司邮箱:<a><span>&nbsp;299@qq.com</span></a></h5>
-                <h5 align="left">公司地址：<a><span>&nbsp;四川省成都市高新区XXX</span></a></h5>
-                <h5 align="left"></h5>
-
-
-            </div>
-            <div class="pull-right" style="margin-right: 150px">
-                <h3 align="left"><img src="img/logo.png"></h3>
-                <h5 align="left"><a href="#"><span>关于我们</span></a></h5>
-                <h5 align="left"><a href="#"><span>联系我们</span></a></h5>
-
-
-            </div>
-        </div>
-        <p style="margin-top: 50px">
-            &copy; Copyrights <strong>daliyuan</strong>. All Rights Reserved 2018
-        </p>
-        <a href="http://www.miitbeian.gov.cn/" style="color:#fff"><span>蜀ICP备XXXX</span></a>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <div style="width:300px;margin:0 auto; padding:0;margin-bottom: 1%;">
-                    <a target="_blank"
-                       href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51019002001655"
-                       style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-                        <img src="img/909162807438009012.png" style="float:left;"/>
-                        <p style="line-height:20px;margin: 0px 0px 0px 30px; color:white;">川公网安备 XXXXXXX</p>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-</div>
-
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/php-mail-form/validate.js"></script>
-<script src="lib/fancybox/fancybox.js"></script>
-
-<!-- Template Main Javascript File -->
-<script src="js/main.js"></script>
+<#include "common/footer.ftl">
 
 </body>
 </html>

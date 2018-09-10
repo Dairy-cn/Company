@@ -7,16 +7,18 @@ import com.sxwl.cn.company.daomain.ProductInfo;
 import com.sxwl.cn.company.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/public")
-public class publicController {
+public class PublicController {
 
     @Autowired
     private ProductInfoService productInfoService;
@@ -48,7 +50,7 @@ public class publicController {
     public ModelAndView engineerInfo(Map<String,Object> map)
 
     {
-      PageInfo<ProductInfo> pageInfo= productInfoService.findList(1,5);
+      PageInfo<ProductInfo> pageInfo= productInfoService.findList(0,5);
        if(pageInfo==null){
 
 
@@ -57,7 +59,33 @@ public class publicController {
 
 
        }
-       map.put("pageInfo",pageInfo);
+        List<ProductInfo> productInfos=pageInfo.getList();
+        System.out.println(productInfos.size());
+        int i=1;
+       for(ProductInfo productInfo:productInfos){
+
+           String string=productInfo.getProductinfoDesc();
+           if(string==null){
+
+               throw new CompanyException(ResultEnums.ARTICLE_ERROR_LENGTH.getCode());
+
+           }
+           productInfo.setProductinfoDesc(string.substring(0,40));
+
+
+           map.put("prod"+i++,productInfo);
+
+
+
+
+
+
+
+       }
+
+
+
+
 
 
       return new ModelAndView("/engineerinfo",map);
@@ -77,6 +105,15 @@ public class publicController {
     {
 
         return new ModelAndView("/new#join");
+
+    }
+    @GetMapping("/newpage")
+    public ModelAndView newPage(){
+
+
+
+
+        return  new ModelAndView("/newpage");
 
     }
 
