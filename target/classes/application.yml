@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sx?useUnicode=true&characterEncoing
+    username: root
+    password: dairui123
+server:
+  port: 8080
+  servlet:
+    path: /company
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+
+redis:
+  host: localhost
+  port: 6379
+
+#分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  row-bounds-with-count: countSql
